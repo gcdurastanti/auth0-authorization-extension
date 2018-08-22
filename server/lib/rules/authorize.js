@@ -55,7 +55,7 @@ function (user, context, callback) {
       },
       json: {
         connectionName: context.connection || user.identities[0].connection,
-        groups: user.groups
+        groups: Array.isArray(user.groups) ? user.groups : [ user.groups ]
       },
       timeout: 5000
     }, cb);
